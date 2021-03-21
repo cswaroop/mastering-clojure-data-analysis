@@ -1,0 +1,45 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.x.axis .tick text {
+    height: 72px;
+    transform         : rotate(-45deg) translate(0px, -5px) scale(1.5);
+    -webkit-transform : rotate(-45deg) translate(0px, -5px) scale(1.5);
+    -moz-transform    : rotate(-45deg) translate(0px, -5px) scale(1.5);
+    -ms-transform     : rotate(-45deg) translate(0px, -5px) scale(1.5);
+    -o-transform      : rotate(-45deg) translate(0px, -5px) scale(1.5);
+    text-anchor       : end !important;
+}
+
+.caption {
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.term text {
+    text-anchor: end;
+}
