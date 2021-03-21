@@ -1,0 +1,129 @@
+outline
+	introduction
+		mention O campaign's giving site
+	defining a/b testing
+		similar methods (with different names) in other domains
+			randomized controlled experiments
+			online controlled experiments
+			split testing
+			between-subjects design
+				two groups, each getting a different variation
+				control group vs test group
+				single-blind
+					subjects don't know which group they are in
+				double-blind
+					subjects and interviewers don't know which group any subject is in
+				can test multiple variables
+					needs more testing subjects, for example
+				needs a large number of testing subjects to begin with
+					the larger the group, the more generalizable the results
+				need fresh subjects for each interaction
+					http://en.wikipedia.org/wiki/Power_Law_of_Practice
+		used in marketing, advertising, and web development
+		needs a specific, measurable outcome to test for
+			click-through
+			purchase conversion
+		what gets tested, typically
+			wording, size, color and placement of call to action button
+			headline, product descriptions
+			form length and fields
+			layout and style of website
+			pricing and promotional offers
+			images on landing pages
+			amount of text on the page
+		testing
+			hypothesis testing
+	setting up ab testing
+		planning experiment
+			what to test
+				control page
+				new page
+		setting the stage statistically
+			define 0-hypothesis
+			how long
+				the sample size needs to be fixed in advance
+					this is assumed in the statistics used
+					"repeated significance testing errors"
+					increases the rate of false positives
+				testing for signficance
+				calculating length of the test
+					see http://www.evanmiller.org/how-not-to-run-an-ab-test.html for formula
+				setting the length of the test
+				"Hypothesis testing is all about quantifying our confidence" -- http://20bits.com/article/statistical-analysis-and-ab-testing
+		building the experiment
+			server-side program
+				services often use javascript
+			options to implement
+				could use the same page with just one single part switched out
+				could redirect to separate pages
+			testing click-through
+				how to measure
+			saving the data
+	analyzing
+		randomly generated data
+		click-through is a normally distributed binomial random variables
+			we measure x, but it may fall on a normal curve around x, depending on the sample
+		the click-through differences is also normally distributed
+		error
+			see http://visualwebsiteoptimizer.com/split-testing-blog/what-you-really-need-to-know-about-mathematics-of-ab-split-testing/ for formula of SE
+		significance
+			$X^2$ or student's t-test
+				http://en.wikipedia.org/wiki/Chi-square_test
+				http://en.wikipedia.org/wiki/Student%27s_t-distribution
+			z-score
+			one-tailed test
+			want $z >= 1.645$ for $p < 0.05$
+	conclusion
+		caveats
+			not everything can be empirically verified
+			may not want to test big changes incrementally
+			a poorly done experiment is probably worse than none at all
+		may want to look at a service to help set up the experiment more easily
+		next chapter
+webapp
+	experiment
+		tracking cookie (new users)
+		tracking db
+			id
+			group
+			visited
+			succeeded-on
+		root handler
+			tracking start and assign group
+			return correct page w/GET on next resource
+		target handler
+			track GET and set succeed on redirect to itself w/out GET
+			w/out GET just serve page
+	results
+		if not finished, waiting
+		display tabular break-down
+		show significance
+resources
+	http://en.wikipedia.org/wiki/A/B_testing
+	http://en.wikipedia.org/wiki/Central_limit_theorem
+	http://kylerush.net/blog/optimization-at-the-obama-campaign-ab-testing/
+	http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/
+	case studies (from http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/)
+		http://37signals.com/svn/posts/1525-writing-decisions-headline-tests-on-the-highrise-signup-page
+		http://dustincurtis.com/you_should_follow_me_on_twitter.html
+		http://www.fourhourworkweek.com/blog/2009/08/12/google-website-optimizer-case-study/
+		http://visualwebsiteoptimizer.com/split-testing-blog/ab-test-case-study-how-two-magical-words-increased-conversion-rate-by-28/
+		http://dmix.ca/2010/05/how-we-increased-our-conversion-rate-by-72/
+		http://www.getelastic.com/single-vs-two-page-checkout/
+		http://www.lukew.com/ff/entry.asp?1007
+		http://www.marketingexperiments.com/blog/research-topics/response-capture-case-study.html
+	http://www.exp-platform.com/Documents/GuideControlledExperiments.pdf
+	http://20bits.com/article/statistical-analysis-and-ab-testing
+	http://www.evanmiller.org/how-not-to-run-an-ab-test.html
+	http://visualwebsiteoptimizer.com/split-testing-blog/what-you-really-need-to-know-about-mathematics-of-ab-split-testing/
+	http://www.cennydd.co.uk/2009/statistical-significance-other-ab-test-pitfalls/
+	Statistics
+		http://en.wikipedia.org/wiki/T_test
+		http://www.socialresearchmethods.net/kb/stat_t.php
+		http://stats.stackexchange.com/questions/3516/binomial-test-for-a-binary-variable
+		http://www.let.rug.nl/nerbonne/teach/rema-stats-meth-seminar/presentations/mur-paired-sign-test-2006-04-10.pdf
+		http://en.wikipedia.org/wiki/Binomial_test
+		http://en.wikipedia.org/wiki/Binomial_distribution
+		http://ncalculators.com/statistics/binomial-distribution-calculator.htm
+research to find
+	Berry, Donald A. “Bayesian Statistics and the Efficiency and Ethics of Clinical Trials,” Statistical Science, Vol. 19, No. 1 (Feb., 2004), pp. 175-187

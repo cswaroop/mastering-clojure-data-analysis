@@ -1,0 +1,44 @@
+html,
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+    padding-top: 70px;
+}
+
+.error {
+    color: red;
+}
+
+body {
+    padding-top: 1.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+header#banner div {
+    width: 1178px;
+    height: 417px;
+    margin: 0 auto 2em;
+    background-image: url(/img/logo.png);
+    background-repeat: no-repeat;
+    background-color: #155183;
+    color: white;
+    border: 4px solid #4b7598;
+}
+
+header#banner h1 {
+    padding-top: 1.5em;
+    font-size: 70pt;
+    font-weight: bold;
+}
+
+.jumbotron {
+}
+
+#right-panel {
+    padding-top: 2.5em;
+    background: none;
+}
+

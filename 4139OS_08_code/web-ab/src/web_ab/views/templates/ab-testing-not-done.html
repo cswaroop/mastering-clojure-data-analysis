@@ -1,0 +1,25 @@
+{% extends "web_ab/views/templates/base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Not Done Yet</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Group</th>
+        <th>Current Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Control</th>
+        <td>{{counts.control}}/{{targets.control}} ({{complete.control|double-format}}%)</td>
+      </tr>
+      <tr>
+        <th>Test</th>
+        <td>{{counts.test}}/{{targets.test}} ({{complete.test|double-format}}%)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Back to the <a href="/ab-testing/">list of observations</a>.</p>
+</div>
+{% endblock %}

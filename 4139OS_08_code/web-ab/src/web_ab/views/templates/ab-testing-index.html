@@ -1,0 +1,27 @@
+{% extends "web_ab/views/templates/base.html" %}
+{% block content %}
+<p>{{ab-testing|count}} observation{{ab-testing|pluralize}}.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Group</th>
+      <th>Started At</th>
+      <th>Succeeded At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ab in ab-testing %}
+    <tr>
+      <td>{{ab.id}}</td>
+      <td>{{ab.group-name}}</td>
+      <td>{{ab.startat}}</td>
+      <td>{{ab.succeed|default:"none"}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if is-over %}
+<p><a href="/ab-testing/grid/">Results Grid</a></p>
+{% endif %}
+{% endblock %}

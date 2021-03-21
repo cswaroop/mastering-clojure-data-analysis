@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome to web-ab</title>
+    </head>
+    <body>
+        <!-- navbar -->
+        <!--
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{{servlet-context}}/">web-ab</a>
+            </div>
+            <div class="navbar-collapse collapse ">
+              <ul class="nav navbar-nav">
+                  <li class="{{home-selected}}"><a href="{{servlet-context}}/">Home</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- scripts and styles -->
+        {% style "/css/normalize.css" %}
+        {% style "/css/bootstrap.min.css" %}
+        <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+        {% style "/css/screen.css" %}
+        {% script "/js/jquery-2.0.3.min.js" %}
+        {% script "/js/bootstrap.min.js" %}
+        {% script "/js/modernizr-2.6.2.min.js" %}
+        <script type="text/javascript">
+            var context = "{{servlet-context}}";
+        </script>
+    </body>
+</html>
+

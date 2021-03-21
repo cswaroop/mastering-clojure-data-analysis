@@ -1,0 +1,60 @@
+{% extends "web_ab/views/templates/base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Results Grid</h1>
+
+  {% if significant %}
+  <div class="alert alert-success">
+    The test did better than the control.
+  </div>
+  {% else %}
+  <div class="alert alert-danger">
+    The control did better than the test.
+  </div>
+  {% endif %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Success</th>
+        <th>Failure</th>
+	<th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Control</th>
+        <td>{{grid.control.true|count}}</td>
+        <td>{{grid.control.false|count}}</td>
+	<td>{{grid.control.total}}</td>
+      </tr>
+      <tr>
+        <th>Test</th>
+        <td>{{grid.test.true|count}}</td>
+        <td>{{grid.test.false|count}}</td>
+	<td>{{grid.test.total}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pair in stats %}
+      <tr>
+        <th>{{pair.0}}</th>
+        <td>{{pair.1}}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p>Back to the <a href="/ab-testing/">list of observations</a>.</p>
+</div>
+{% endblock %}
